@@ -9,9 +9,9 @@
 
 
 ## Team Members
-1. E/17/122 Shazna Isthikar [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [e17122@eng.pdn.ac.lk](mailto:e17122@eng.pdn.ac.lk)]
-2. E/17/153 Odasara Karunachandra [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [e17153@eng.pdn.ac.lk](mailto:e17153@eng.pdn.ac.lk)]
-3. E/15/294 Mishel Rossmaree [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [e17294@eng.pdn.ac.lk](mailto:e17294@eng.pdn.ac.lk)]
+1. E/17/122 Shazna Isthikar [[e17122@eng.pdn.ac.lk](mailto:e17122@eng.pdn.ac.lk)]
+2. E/17/153 Odasara Karunachandra [[e17153@eng.pdn.ac.lk](mailto:e17153@eng.pdn.ac.lk)]
+3. E/15/294 Mishel Rossmaree [[e17294@eng.pdn.ac.lk](mailto:e17294@eng.pdn.ac.lk)]
 
 
 ## Supervisors
