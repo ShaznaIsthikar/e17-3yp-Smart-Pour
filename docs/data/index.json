@@ -1,27 +1,27 @@
 {
     "team": [
         {
-            "name": "Team Member Name 1",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
-            "linkedin_profile":"#",
+            "name": "Shazna Isthikar",
+            "email": "e17122@eng.pdn.ac.lk",
+            "eNumber": "E/17/122",
+            "github_profile":"https://github.com/ShaznaIsthikar",
+            "linkedin_profile":"www.linkedin.com/in/shazna-isthikar",
             "website": "#"
         },
         {
-            "name": "Team Member Name 2",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
-            "linkedin_profile":"#",
+            "name": "Odasara Karunachandra",
+            "email": "e17153@eng.pdn.ac.lk",
+            "eNumber": "E/17/153",
+            "github_profile":"https://github.com/Odasara",
+            "linkedin_profile":"https://www.linkedin.com/in/odasara-karunachandra-b55a3a7b",
             "website": "#"
         },
         {
-            "name": "Team Member Name 3",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
-            "linkedin_profile":"#",
+            "name": "Mishel Rossmaree",
+            "email": "e17294@eng.pdn.ac.lk",
+            "eNumber": "E/17/294",
+            "github_profile":"https://github.com/MishelRossmaree",
+            "linkedin_profile":"https://www.linkedin.com/in/mishel-rossmaree-523a5a1ba",
             "website": "#"
         }
     ],
