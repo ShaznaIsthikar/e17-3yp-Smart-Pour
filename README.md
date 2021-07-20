@@ -2,16 +2,16 @@
 [//]: # (Please refer the instructions in below URL for the configurations)
 [//]: # (https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project)
 
-# Project Name
+# Smart Pour
 
-## Description
+## An automated coffe machine which is controlled by a mobile application
 
 This is a short desciption of the project. This section should be around 3 sentences.
 
 ## Team Members
-1. E/17/122 Shazna Isthikar [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e5001@eng.pdn.ac.lk)]
-2. E/17/153 Odasara Karunachandra [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e5001@eng.pdn.ac.lk)]
-3. E/15/294 Mishel Rossmaree [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e5001@eng.pdn.ac.lk)]
+1. E/17/122 Shazna Isthikar [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e17122@eng.pdn.ac.lk)]
+2. E/17/153 Odasara Karunachandra [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e17153@eng.pdn.ac.lk)]
+3. E/15/294 Mishel Rossmaree [[Website](http://www.ce.pdn.ac.lk/e15-batch/), [Email](mailto:e17294@eng.pdn.ac.lk)]
 
 
 ## Supervisors
