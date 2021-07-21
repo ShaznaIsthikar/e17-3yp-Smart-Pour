@@ -23,8 +23,8 @@
 
 ## Links
 
-1. [Project page](https://cepdnaclk.github.io/e15-4yp-minimal-template)
-2. [Github repo](https://github.com/cepdnaclk/e15-4yp-minimal-template)
+1. [Project page](https://cepdnaclk.github.io/e17-3yp-Smart-Pour/)
+2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Pour)
 3. [Department of computer engineering](http://ce.pdn.ac.lk)
 
 <!--
