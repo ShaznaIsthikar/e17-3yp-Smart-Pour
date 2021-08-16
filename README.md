@@ -26,6 +26,7 @@
 1. [Project page](https://cepdnaclk.github.io/e17-3yp-Smart-Pour/)
 2. [Github repo](https://github.com/cepdnaclk/e17-3yp-Smart-Pour)
 3. [Department of computer engineering](http://www.ce.pdn.ac.lk/)
+4. [Department projects](https://projects.ce.pdn.ac.lk/)
 
 <!--
 ## Publications
