@@ -102,32 +102,52 @@
 							<img class="img-fluid" src="img/signature.png" alt="">
 						-->
 						</div>
+
 					</div>
 				</div>	
 			</section>
 			<!-- End video-sec Area -->
 
 			<!-- Start SolutionArchitecture-sec Area -->
-			<section class="architecture-sec-area pb-100 pt-40" id="architecture">
+			<section class="architecture-sec-area " id="architecture">
 				<div class="container">
-					<div class="row justify-content-start align-items-center">
+					<!--<div class="row justify-content-start align-items-center">-->
 											
-						<div class="col-lg-6">
-							<h6>Smart Pour</h6>
-							<h1>An automated coffee machine
-							that is controlled by an app </h1>
-							<p><span>The Smart Pour is an improvement for traditional coffee makers. Traditional coffee making is inconvenient with today's hectic lifestyle. We, as a team, came up with a more convenient coffee making system that can be controlled by an app. </span></p>
-							<!--
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-							</p>
-							<img class="img-fluid" src="img/signature.png" alt="">
-						-->
+						<div class="row">
+							<div class="col-lg-6 col-md-6 single-architecture">
+								<h1>Solution Architecture </h1>
+									<p> </p>
+									<h5>Mobile Application</h5>
+										<p><span>An Android mobile application is available for SmartPour coffee machine
+										to allow users to remotely make coffee in a scheduled manner as well. The mobile application sends a notification when the coffee is made
+										and reminders for scheduled coffee.Users can log in to the mobile app anytime to 
+										check the availability of the ingredients to make coff.The app is designed using 
+										Flutter.  </span></p>
+									<p> </p>
+
+									<h5>Web Server</h5>
+									<p><span>AWS server is used as the web server for the SmartPour System. Signals from sensors
+									are passed to the mobile application as well as control information from mobile applications
+									are passed to the machine and response mechanisms through this server. 
+									Database which is used to store favourite recipes, availabilityof the ingredients  and logs
+									of the system is hosted at the server.  </span></p>
+									<p> </p>
+
+									<h5>SmartPour Machine</h5>
+									<p><span>The coffe making is done in the machine. The pouring of coffee, ingredient seperation,
+										ingredient tracking is identified through sensors. It will consist of wireless sensors suchas ultra-sonic sensors, reflective 
+										optical sensors, valves and servo motors. NodeMCU is used as the microcontroller of the SmartPour and ESP8266 WiFi modules 
+										are used for wireless sensors. </span></p>
+								
+							</div>
+							<div class="col-lg-6 col-md-6 single-architecture">
+								<img class="img-fluid" src="img/s_architecture.PNG" alt="">
+							</div>						
 						</div>
-					</div>
+					<!--</div>-->
 				</div>	
 			</section>
-			<!-- End video-sec Area -->
+			<!-- End SolutionArchitecture-sec Area -->
 			
 			<!-- Start menu Area -->
 			<section class="menu-area section-gap" id="features">
