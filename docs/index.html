@@ -36,41 +36,42 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    <header id="header" id="home">
-      <div class="container">
-        <div class="row align-items-center justify-content-between d-flex">
-          <div id="logo">
-            <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
-          </div>
-          <nav id="nav-menu-container">
-            <ul class="nav-menu">
-              <li class="menu-active"><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#architecture">Architecture</a></li>
-              <li><a href="#features">Features</a></li>
-              <li class="menu-has-children">
-                <a href="">Design</a>
-                <ul>
-                  <li><a href="#design">Hardware</a></li>
-                  <li><a href="#design">UI/UX</a></li>
-                </ul>
-              </li>
-              <li><a href="#dataflow">Data Flow</a></li>
-              <li class="menu-has-children">
-                <a href="">Others</a>
-                <ul>
-                  <li><a href="#other">Budget</a></li>
-                  <li><a href="#other">Timeline</a></li>
-                </ul>
-              </li>
-              <li><a href="#team">Team</a></li>
-            </ul>
-          </nav>
-          <!-- #nav-menu-container -->
-        </div>
-      </div>
-    </header>
+
     <!-- #header -->
+
+
+			  <header id="header" id="home">
+					  	
+			    <div class="container">
+			    	<div class="row align-items-center justify-content-between d-flex">
+				      <div id="logo">
+				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				      </div>
+				      <nav id="nav-menu-container">
+				        <ul class="nav-menu">
+				          <li class="menu-active"><a href="#home">Home</a></li>
+				          <li><a href="#about">About</a></li>
+						  <li><a href="#architecture">Architecture</a></li>
+				          <li><a href="#features">Features</a></li>
+				          <li class="menu-has-children"><a href="">Design</a>
+							<ul>
+								<li><a href="#hardware">Hardware</a></li>
+								<li><a href="#uiux">UI/UX</a></li>
+							</ul>
+							</li>
+				          <li><a href="#dataflow">Data Flow</a></li>
+				          <li class="menu-has-children"><a href="">Others</a>
+				            <ul>
+				              <li><a href="#other">Budget</a></li>
+				              <li><a href="#other">Timeline</a></li>
+				            </ul>
+				          </li>
+						  <li><a href="#team">Team</a></li>
+				        </ul>
+				      </nav><!-- #nav-menu-container -->		    		
+			    	</div>
+			    </div>
+			  </header><!-- #header -->
 
     <!-- start banner Area -->
     <section class="banner-area" id="home">
@@ -96,6 +97,7 @@
       </div>
     </section>
     <!-- End banner Area -->
+ 
 
     <!-- Start video-sec Area -->
     <section class="video-sec-area pb-100 pt-40" id="about">
@@ -174,30 +176,139 @@
                 at the server.
               </span>
             </p>
-            <p></p>
+           				<h5>SmartPour Machine</h5>
+									<p><span>The coffe making is done in the machine. The pouring of coffee, ingredient seperation,
+										ingredient tracking is identified through sensors. It will consist of wireless sensors suchas ultra-sonic sensors, reflective 
+										optical sensors, valves and servo motors. NodeMCU is used as the microcontroller of the SmartPour and ESP8266 WiFi modules 
+										are used for wireless sensors. </span></p>
+								
+							</div>
+							<div class="col-lg-6 col-md-6 single-architecture">
+								<p>  </p>
+								<p>  </p>
+								<img class="img-fluid" src="img/s_architecture.PNG" alt="">
+							</div>						
+						</div>
+					<!--</div>-->
+				</div>	
+			</section>
+			<!-- End SolutionArchitecture-sec Area -->
+			
 
-            <h5>SmartPour Machine</h5>
-            <p>
-              <span
-                >The coffe making is done in the machine. The pouring of coffee,
-                ingredient seperation, ingredient tracking is identified through
-                sensors. It will consist of wireless sensors suchas ultra-sonic
-                sensors, reflective optical sensors, valves and servo motors.
-                NodeMCU is used as the microcontroller of the SmartPour and
-                ESP8266 WiFi modules are used for wireless sensors.
-              </span>
-            </p>
-          </div>
-          <div class="col-lg-6 col-md-6 single-architecture">
-            <p></p>
-            <p></p>
-            <img class="img-fluid" src="img/s_architecture.PNG" alt="" />
-          </div>
-        </div>
-        <!--</div>-->
-      </div>
-    </section>
-    <!-- End SolutionArchitecture-sec Area -->
+			
+			<!-- Start Hardware Area -->
+			<section class="hardware-area section-gap" id="hardware">
+				<div class="container">
+															
+						<div class="row">
+							<div class="col-lg-4 col-md- single-architecture">
+								<h1>Processing Unit </h1>
+									<p> </p>
+									<p><span>The Processing Unit handles all the data processing and remote communications.
+										The storage containers have the ultra-sonic sensor to track the ingredients availability.
+										The valve is used to seperate liquid and servo motors are used to seperate dry ingredients from the storage containers.
+										A reflective optical Sensor is there to detect the availability of a cup before pouring the coffee.
+										The machine consists of storage containers to store ingredients. A heater and motor are used to boil water and stir
+										 the ingredients respectively. The power supply is given via current electricity. 
+									</span></p>
+											<p> </p>
+									<p><span>The processing unit also consists of inbuilt Wi-Fi  via 
+										an ESP8266 Development board. Through this the consumer can directly connect our 
+										device to the internet through their home router and send data to our server
+									</span></p>
+								
+									<p> </p>
+
+																	
+							</div>
+							<div class="col-lg-8 col-md-8 single-architecture">
+								<p>  </p>
+								<p>  </p>
+								<img class="img-fluid" src="img/hardware.PNG" alt="">
+							</div>						
+						</div>
+					<!--</div>-->
+				</div>	
+			
+			</section>
+			<!-- End hardware Area -->
+
+			<!-- Start UIUX Area -->
+			<section class="uiux-area section-gap" id="uiux">
+				<div class="container">
+															
+						<div class="row">
+							<div class="col-lg-6 col-md-6 single-uiux">
+								<h1>Solution Architecture </h1>
+									
+									<p> </p>
+
+									<h5>Web Server</h5>
+									<p><span>AWS server is used as the web server for the SmartPour System. Signals from sensors
+									are passed to the mobile application as well as control information from mobile applications
+									are passed to the machine and response mechanisms through this server. 
+									Database which is used to store favourite recipes, availabilityof the ingredients  and logs
+									of the system is hosted at the server.  </span></p>
+									<p> </p>
+
+																	
+							</div>
+							<div class="col-lg-6 col-md-6 single-architecture">
+								<p>  </p>
+								<p>  </p>
+								<img class="img-fluid" src="img/s_architecture.PNG" alt="">
+							</div>						
+						</div>
+					<!--</div>-->
+				</div>	
+			
+			</section>
+			<!-- End review Area -->
+			
+			<!-- Start blog Area -->
+			<section class="blog-area section-gap" id="dataflow">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">What kind of Coffee we serve for you</h1>
+								<p>Who are in extremely love with eco friendly system.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-lg-6 col-md-6 single-blog">
+							<img class="img-fluid" src="img/b1.jpg" alt="">
+							<ul class="post-tags">
+								<li><a href="#">Travel</a></li>
+								<li><a href="#">Life Style</a></li>
+							</ul>
+							<a href="#"><h4>Portable latest Fashion for young women</h4></a>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+							</p>
+							<p class="post-date">
+								31st January, 2018
+							</p>
+						</div>
+						<div class="col-lg-6 col-md-6 single-blog">
+							<img class="img-fluid" src="img/b2.jpg" alt="">
+							<ul class="post-tags">
+								<li><a href="#">Travel</a></li>
+								<li><a href="#">Life Style</a></li>
+							</ul>
+							<a href="#"><h4>Portable latest Fashion for young women</h4></a>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+							</p>
+							<p class="post-date">
+								31st January, 2018
+							</p>
+						</div>						
+					</div>
+				</div>	
+			</section>
+
 
     <!-- Start menu Area -->
     <section class="menu-area section-gap" id="features">
