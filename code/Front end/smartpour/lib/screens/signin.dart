@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartpour/screens/devicepage.dart';
 import '../constant.dart';
 // ignore_for_file: prefer_const_constructors
 class SignInPage extends StatelessWidget {
@@ -58,7 +59,12 @@ class SignInPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 color: primaryColor,
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DevicePage(),
+                  ),
+                ),
                 child: Text(
                   "SIGN IN",
                   style: TextStyle(

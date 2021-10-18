@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constant.dart';
+import 'devicepage.dart';
 // ignore_for_file: prefer_const_constructors
 class LoginPage extends StatelessWidget {
   @override
@@ -57,7 +58,12 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
                 color: primaryColor,
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DevicePage(),
+                  ),
+                ),
                 child: Text(
                   "LOG IN",
                   style: TextStyle(
