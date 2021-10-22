@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartpour/screens/signin.dart';
+import 'package:smartpour/screens/signup.dart';
 import '../constant.dart';
 import 'login.dart';
 // ignore_for_file: prefer_const_constructors
@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/bg.jpg", fit: BoxFit.cover),
@@ -67,11 +67,11 @@ class HomePage extends StatelessWidget {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => SignInPage(),
+                    builder: (_) => SignupPage(),
                   ),
                 ),
                 child: Text(
-                  "SIGN IN",
+                  "SIGN UP",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
