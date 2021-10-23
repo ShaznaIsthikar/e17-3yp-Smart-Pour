@@ -6,12 +6,13 @@ import 'package:smartpour/screens/signup.dart';
 
 
 import '../constant.dart';
+import 'login.dart';
 
-class LoginPage extends StatefulWidget {
+class SignupPage extends StatefulWidget {
   @override
-  _LoginViewState createState() => _LoginViewState();
+  _SignupViewState createState() => _SignupViewState();
 }
- class  _LoginViewState extends State<LoginPage>{
+ class  _SignupViewState extends State<SignupPage>{
    final _formKey = GlobalKey<FormState>();
    TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -20,7 +21,7 @@ class LoginPage extends StatefulWidget {
    @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-
+    
     final emailField = TextFormField(
       //enabled: isSummtting,
       controller: _emailController,
@@ -75,26 +76,13 @@ class LoginPage extends StatefulWidget {
           padding: EdgeInsets.all(2.0),
         ),
         SizedBox(height: 20,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            MaterialButton(
-                child: Text(
-                  "Forgot Password",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black)
-                  
-                ),
-                onPressed: () {
-                  //popups
-                }
-            ),     
-          ],
-        ),
+        
       ],
     );
 
 
     final fields = Padding(
-      padding: EdgeInsets.only(top: 10.0,left: 10,right: 10),
+      padding: EdgeInsets.only(left: 10,right: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -130,25 +118,25 @@ class LoginPage extends StatefulWidget {
               SingleChildScrollView(
              child: Column(
               children: [
-                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:80),child: Text("LOG IN",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
+                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:80),child: Text("SIGN UP",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
                 Container(alignment: Alignment.center,padding: EdgeInsets.only(top:5),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
                 SizedBox(height: 10,),
                 Container(margin:EdgeInsets.only(left: 20,right: 20),height: 250,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.5),),
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [fields],
                 ),) ,
-                SizedBox(height: 30,),
+                SizedBox(height: 40,),
                 Positioned(bottom: 30,
                 child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
                 onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => DevicePage(),),),
-                child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
+                child: Text("SIGN UP",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
                 ),
                 SizedBox(height: 30,),
                 InkWell(
                 onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder:(context)=>SignupPage() ));
+                Navigator.push(context,MaterialPageRoute(builder:(context)=>LoginPage() ));
                 },
-                child: Text("Don't have an account ? Sign Up",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),),
+                child: Text("Already have an account ? Log In",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),),
                 ),
                 ],),
               ),

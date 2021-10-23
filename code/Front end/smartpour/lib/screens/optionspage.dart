@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smartpour/screens/schedule.dart';
 
 import '../constant.dart';
+import 'Favourites.dart';
 import 'homepage.dart';
+import 'ingredients.dart';
+import 'upcoming.dart';
  // ignore: prefer_const_constructors
 class  OptionsPage extends StatelessWidget {
   @override
@@ -62,7 +66,7 @@ class  OptionsPage extends StatelessWidget {
             child: GridView(children: [
               InkWell(
                 onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder:(context)=>HomePage() ));
+                Navigator.push(context,MaterialPageRoute(builder:(context)=>Schedule() ));
             },
                 child: Container(
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.4),),
@@ -76,7 +80,7 @@ class  OptionsPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder:(context)=>HomePage() ));
+              Navigator.push(context,MaterialPageRoute(builder:(context)=>Ingredients() ));
                 },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.4),),child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
                     Image.asset("images/option_2.png",width: size.width * 0.3,),
@@ -86,7 +90,7 @@ class  OptionsPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder:(context)=>HomePage() ));
+              Navigator.push(context,MaterialPageRoute(builder:(context)=>UpcomingPage() ));
             },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.4),),child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
                     Image.asset("images/option_33.png",width: size.width * 0.25,),
@@ -96,7 +100,7 @@ class  OptionsPage extends StatelessWidget {
               ),
               InkWell(
                 onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder:(context)=>HomePage() ));
+              Navigator.push(context,MaterialPageRoute(builder:(context)=>Favorites() ));
             },
                 child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.4),),child: Column(mainAxisAlignment: MainAxisAlignment.center,children: [
                     Image.asset("images/option_4.png",width: size.width * 0.3,),

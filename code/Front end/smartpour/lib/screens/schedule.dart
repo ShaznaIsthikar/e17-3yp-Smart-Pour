@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smartpour/screens/devicepage.dart';
+import 'package:smartpour/screens/optionspage.dart';
 import '../constant.dart';
-// ignore_for_file: prefer_const_constructors
-class SignInPage extends StatelessWidget {
+class Schedule extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -13,7 +13,7 @@ class SignInPage extends StatelessWidget {
           Container(
             height: size.height,
             width: size.height,
-            child: Image.asset("images/bg_log_sign.jpeg", fit: BoxFit.cover),
+            child: Image.asset("images/bg_option.jpeg", fit: BoxFit.cover),
           ),
           Container(
             padding: EdgeInsets.all(40),
@@ -24,7 +24,7 @@ class SignInPage extends StatelessWidget {
                 end: Alignment.bottomCenter,
                 colors: [
                   Theme.of(context).primaryColor,
-                  Theme.of(context).primaryColor.withOpacity(0.4)
+                  Theme.of(context).primaryColor.withOpacity(0.5)
                 ],
               ),
             ),
@@ -32,29 +32,24 @@ class SignInPage extends StatelessWidget {
           Positioned(
             top: 80,
             child: Text(
-              "SIGN IN",
+              "Schedule Now!",
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
-              
               ),
             ),
           ),
-          Positioned(
-            top: 150,
-            //left: 0,
-            child: Image.asset(
-              "images/logo_t.png",
-              width: size.width * 0.5,
-            ),
-          ),
-          Positioned(
-            bottom: 50,
-            child: SizedBox(
-              height: 60,
-              width: 300,
-              child: FlatButton(
+          Container(
+            margin:EdgeInsets.only(left: 20,right: 20,top: 200),
+            height: 500,
+            width: double.infinity,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.4),),
+            child: Column(
+              children: [Text("Recipe",style: TextStyle(fontSize: 16,),)
+              ,
+              SizedBox(height: 400,),
+              FlatButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -62,20 +57,19 @@ class SignInPage extends StatelessWidget {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => DevicePage(),
+                    builder: (_) => OptionsPage(),
                   ),
                 ),
                 child: Text(
-                  "SIGN IN",
+                  "Confirm",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color:Colors.white
                   ),
                 ),
-              ),
-            ),
-          )
+              ),],
+            ),) 
         ],
       ),
     );
