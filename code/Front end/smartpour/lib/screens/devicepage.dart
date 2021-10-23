@@ -38,13 +38,10 @@ class  DevicePage extends StatelessWidget {
                 SizedBox(height: 20,),
                 Container(margin:EdgeInsets.only(left: 20,right: 20),height: 500,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
-                child: SingleChildScrollView(
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
-                    Container(alignment: Alignment.center,padding: EdgeInsets.only(top:5),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
-                    Container(alignment: Alignment.center,padding: EdgeInsets.only(top:5),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
-                    Container(alignment: Alignment.center,padding: EdgeInsets.only(top:5),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
-                  ],
-                  ),
+                child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
+                  
+                  
+                ],
                 ),) ,
                 SizedBox(height: 20,),
                 Positioned(bottom: 100,child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
