@@ -20,7 +20,7 @@ class LoginPage extends StatefulWidget {
    @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    
+
     final emailField = TextFormField(
       //enabled: isSummtting,
       controller: _emailController,
@@ -149,7 +149,7 @@ class LoginPage extends StatefulWidget {
                 Navigator.push(context,MaterialPageRoute(builder:(context)=>SignupPage() ));
                 },
                 child: Text("Don't have an account ? Sign Up",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),),
-              ),
+                ),
                 ],),
               ),
               ],

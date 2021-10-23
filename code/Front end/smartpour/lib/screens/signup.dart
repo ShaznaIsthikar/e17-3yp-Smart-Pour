@@ -136,8 +136,8 @@ class SignupPage extends StatefulWidget {
                 onTap: (){
                 Navigator.push(context,MaterialPageRoute(builder:(context)=>LoginPage() ));
                 },
-                child: Text("Already have an account ? Log in",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),),
-              ),
+                child: Text("Already have an account ? Log In",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color:Colors.white),),
+                ),
                 ],),
               ),
               ],
