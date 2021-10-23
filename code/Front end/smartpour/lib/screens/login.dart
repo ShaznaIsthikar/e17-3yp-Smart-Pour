@@ -44,6 +44,13 @@ class LoginPage extends StatefulWidget {
           color: Colors.white,
         ),
       ),
+      validator:(value){
+        if(value!.isEmpty||!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
+            return "Enter correct email";
+        }else{
+            return null;
+        }
+      }
     );
     
     final passwordField = Column(
@@ -70,6 +77,13 @@ class LoginPage extends StatefulWidget {
               color: Colors.white,
             ),
           ),
+          validator: (value){
+            if(value!.isEmpty){
+              return "Enter the password";
+            }else{
+              return null;
+            }
+          },
         ),
         Padding(
           padding: EdgeInsets.all(2.0),
@@ -131,16 +145,18 @@ class LoginPage extends StatefulWidget {
              child: Column(
               children: [
                 Container(alignment: Alignment.center,padding: EdgeInsets.only(top:80),child: Text("LOG IN",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
-                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:5),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
-                SizedBox(height: 10,),
-                Container(margin:EdgeInsets.only(left: 20,right: 20),height: 250,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
+                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:0),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
+                SizedBox(height: 7,),
+                Container(margin:EdgeInsets.only(left: 20,right: 20),height: 280,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.5),),
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [fields],
                 ),) ,
                 SizedBox(height: 30,),
                 Positioned(bottom: 30,
                 child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => DevicePage(),),),
+                onPressed: (){ if(_formKey.currentState!.validate()){
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));
+                }},
                 child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
                 ),
                 SizedBox(height: 30,),
