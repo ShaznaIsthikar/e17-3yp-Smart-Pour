@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constant.dart';
+import 'optionspage.dart';
  // ignore: prefer_const_constructors
 class  DevicePage extends StatelessWidget {
   @override
@@ -37,12 +38,12 @@ class  DevicePage extends StatelessWidget {
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
-              ),
+              ), 
             ),
           ),
           
           Positioned(
-            bottom: 50,
+            bottom: 100,
             child: SizedBox(
               height: 60,
               width: 300,
@@ -57,8 +58,49 @@ class  DevicePage extends StatelessWidget {
                     builder: (_) => DevicePage(),
                   ),
                 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_outlined,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
+                  ),
+                    Text(
+                    "Add a new device",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  
+                  ] 
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            child: SizedBox(
+              height: 60,
+              width: 300,
+              child: FlatButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                color: primaryColor,
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => OptionsPage(),
+                  ),
+                ),
                 child: Text(
-                  "Add a new device",
+                  "Okay",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
