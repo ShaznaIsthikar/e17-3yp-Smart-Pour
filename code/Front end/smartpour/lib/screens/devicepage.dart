@@ -58,13 +58,27 @@ class  DevicePage extends StatelessWidget {
                     builder: (_) => DevicePage(),
                   ),
                 ),
-                child: Text(
-                  "Add a new device",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children:[
+                    IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_outlined,
+                      color: Colors.white,
+                      size: 30.0,
+                    ),
                   ),
+                    Text(
+                    "Add a new device",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                  
+                  ] 
                 ),
               ),
             ),

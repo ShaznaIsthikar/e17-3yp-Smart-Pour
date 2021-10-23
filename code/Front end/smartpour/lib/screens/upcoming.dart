@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smartpour/screens/signup.dart';
+
 import '../constant.dart';
-import 'login.dart';
-// ignore_for_file: prefer_const_constructors
-class HomePage extends StatelessWidget {
+import 'optionspage.dart';
+ // ignore: prefer_const_constructors
+class UpcomingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -11,10 +11,10 @@ class HomePage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          SizedBox(
+          Container(
             height: size.height,
             width: size.height,
-            child: Image.asset("images/bg.jpg", fit: BoxFit.cover),
+            child: Image.asset("images/upcoming_bg.jpeg", fit: BoxFit.cover),
           ),
           Container(
             padding: EdgeInsets.all(40),
@@ -29,33 +29,22 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            child: Image.asset('images/coffee.png'),
           ),
           Positioned(
-            top: 70,
+            top: 80,
             child: Text(
-              "Coffee making at your fingertips",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: primaryColor,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 100,
-            child: Text(
-              "SMART POUR",
+              "Upcomings",
               style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
-              
-              ),
+              ), 
             ),
           ),
+          
+          
           Positioned(
-            bottom: 125,
+            bottom: 20,
             child: SizedBox(
               height: 60,
               width: 300,
@@ -67,11 +56,11 @@ class HomePage extends StatelessWidget {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => SignupPage(),
+                    builder: (_) => OptionsPage(),
                   ),
                 ),
                 child: Text(
-                  "SIGN UP",
+                  "Okay",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -81,33 +70,6 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            bottom: 50,
-            child: SizedBox(
-              height: 60,
-              width: 300,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: Colors.white,
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => LoginPage(),
-                  ),
-                ),
-                child: Text(
-                  "LOG IN",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color:primaryColor
-                  ),
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );
