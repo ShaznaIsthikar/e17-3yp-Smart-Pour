@@ -4,10 +4,13 @@ import '../constant.dart';
 import 'optionspage.dart';
  // ignore: prefer_const_constructors
 class  DevicePage extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -31,34 +34,84 @@ class  DevicePage extends StatelessWidget {
             ),
           ),
           Container(
-             child: Column(
-              children:[
-                SizedBox(height: 40,),
-                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:10),child: Text("Devices",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
-                SizedBox(height: 20,),
-                Container(margin:EdgeInsets.only(left: 20,right: 20),height: 500,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
-                child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
-                  
-                  
-                ],
-                ),) ,
-                SizedBox(height: 20,),
-                Positioned(bottom: 100,child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => DevicePage(),),),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
-                    Text("Add a new device",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
-                ),
-                SizedBox(height: 20,),
-                Positioned(
-                child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),
-                child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
-                ),
-                ],),
+             child: SingleChildScrollView(
+               child: Column(
+                children:[
+                  SizedBox(height: 40,),
+                  Container(alignment: Alignment.center,padding: EdgeInsets.only(top:10),child: Text("Devices",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
+                  SizedBox(height: 20,),
+                  Container(margin:EdgeInsets.only(left: 20,right: 20),height: 500,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
+                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
+                    
+                    
+                  ],
+                  ),) ,
+                  SizedBox(height: 20,),
+                  Positioned(bottom: 100,child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
+                  onPressed: () => _addDevice(context),
+                  child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
+                      Text("Add a new device",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
+                  ),
+                  SizedBox(height: 20,),
+                  Positioned(
+                  child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
+                  onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),
+                  child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
+                  ),
+                  ],),
+             ),
               ),
         ],
       ),
     );
   }
+
+  
+  _addDevice(BuildContext context) => showDialog(context: context,builder: (context) {
+    final TextEditingController _devicenameController = TextEditingController();
+    final TextEditingController _macController = TextEditingController(); 
+        return AlertDialog(
+          title: Text("Add Device",),
+          content: Form(
+            key: _formKey,
+            child: Container(
+              //decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
+              //width: double.infinity,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  TextFormField(
+                    controller: _devicenameController,
+                    decoration: InputDecoration(
+                        hintText: 'Enter the Device Name',
+                        icon: Icon(Icons.coffee_maker)),
+                      validator: (value){
+                        return value!.isNotEmpty ? null :"*Required";
+                      },
+                  ),
+                  TextFormField(
+                    controller:_macController,
+                    decoration: InputDecoration(
+                        hintText: 'Enter the MAC',
+                        icon: Icon(Icons.coffee_maker)),
+                      validator: (value){
+                         return value!.isNotEmpty ? null :"*Required";
+                      },
+                  ),
+                ],
+              ),
+            ),
+          ),
+          actions: [
+             FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
+             onPressed:(){
+               if(_formKey.currentState!.validate()){Navigator.of(context).pop();}
+               
+             },
+             child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),
+          ],
+        );
+      },
+    );
 }
