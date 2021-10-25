@@ -46,8 +46,7 @@ class Schedule extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.4),),
             child: Column(
-              children: [Text("Recipe",style: TextStyle(fontSize: 16,),)
-              ,
+              children: [
               SizedBox(height: 400,),
               FlatButton(
                 shape: RoundedRectangleBorder(

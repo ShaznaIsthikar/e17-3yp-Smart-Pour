@@ -45,6 +45,13 @@ class SignupPage extends StatefulWidget {
           color: Colors.white,
         ),
       ),
+      validator:(value){
+        if(value!.isEmpty||!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
+            return "Enter correct email";
+        }else{
+            return null;
+        }
+      }
     );
     
     final passwordField = Column(
@@ -71,6 +78,13 @@ class SignupPage extends StatefulWidget {
               color: Colors.white,
             ),
           ),
+          validator: (value){
+            if(value!.isEmpty){
+              return "Enter the password";
+            }else{
+              return null;
+            }
+          },
         ),
         Padding(
           padding: EdgeInsets.all(2.0),
@@ -96,7 +110,7 @@ class SignupPage extends StatefulWidget {
           key: _formKey,
           child:Stack(
             children:[ 
-              Container(
+              Container( 
                   height: size.height,
                   width: size.height,
                   child: Image.asset("images/bg_log_sign.jpeg", fit: BoxFit.cover),
@@ -128,7 +142,9 @@ class SignupPage extends StatefulWidget {
                 SizedBox(height: 40,),
                 Positioned(bottom: 30,
                 child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => DevicePage(),),),
+                onPressed: () { if(_formKey.currentState!.validate()){
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));
+                }},
                 child: Text("SIGN UP",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
                 ),
                 SizedBox(height: 30,),
