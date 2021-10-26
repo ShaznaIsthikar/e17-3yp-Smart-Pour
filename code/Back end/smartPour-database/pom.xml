@@ -58,6 +58,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>smartPour-database-exe</finalName>
 	</build>
 
 </project>
