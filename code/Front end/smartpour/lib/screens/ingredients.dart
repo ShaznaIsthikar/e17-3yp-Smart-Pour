@@ -1,4 +1,6 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+// ignore: use_key_in_widget_constructors
 class Ingredients extends StatelessWidget {
   
 
@@ -125,6 +127,7 @@ class Ingredients extends StatelessWidget {
                  ),),
                  SizedBox(height: 50,),
                  Container(alignment: Alignment.center,margin:EdgeInsets.only(left: 10,right: 10),padding: EdgeInsets.only(top: 8,left: 8),height: 80,width: 200,decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.white.withOpacity(0.4),),child: Column(
+                   // ignore: prefer_const_literals_to_create_immutables
                    children: [
                      Text("Last Refilled",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color:Colors.black),),
                      SizedBox(height: 10,),

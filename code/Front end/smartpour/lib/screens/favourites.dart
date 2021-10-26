@@ -1,5 +1,4 @@
-import 'dart:async';
-
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
 import '../constant.dart';
@@ -7,14 +6,17 @@ import 'optionspage.dart';
 
 class CardItem {
   final String title;
+  // ignore: non_constant_identifier_names
   final String Name;
 
   const CardItem({
     required this.title,
+    // ignore: non_constant_identifier_names
     required this.Name,
 
   });
 }
+// ignore: use_key_in_widget_constructors
 class Favorites extends StatefulWidget {
   
   @override
@@ -46,7 +48,7 @@ class Favorites extends StatefulWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/Favourite_bg.jpeg", fit: BoxFit.cover),
@@ -87,7 +89,7 @@ class Favorites extends StatefulWidget {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             height: 300,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
@@ -95,34 +97,15 @@ class Favorites extends StatefulWidget {
               separatorBuilder: (context,_)=>SizedBox(width: 20,),
               itemBuilder: (context,index)=> recipe(item: items[index]),
             ),) ,
-            Positioned(bottom: 110,child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                  onPressed: () => _addRecipe(context),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
-                      Text("Add a new Recipe",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
+            Positioned(bottom: 110,child: SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () => _addRecipe(context),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53),),
+               child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
+                   Text("Add a new device",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
                   ),
             Positioned(bottom: 30,child: SizedBox(height: 60,width: 300,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: primaryColor,
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => OptionsPage(),
-                  ),
-                ),
-                child: Text(
-                  "Okay",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ),
+              child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+               child: Text("Okay",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),),
         ],
       ),
     );
@@ -150,50 +133,46 @@ class Favorites extends StatefulWidget {
           title: Text("Add Recipe",),
           content: Form(
             key: formKey,
-            child: Container(
-              //decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
-              //width: double.infinity,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  TextFormField(
-                    controller: _titleController,
-                    decoration: InputDecoration(
-                        hintText: 'Title',
-                        icon: Icon(Icons.coffee_maker)),
-                      validator: (value){
-                        return value!.isNotEmpty ? null :"*Required";
-                      },
-                  ),
-                  TextFormField(
-                    controller:_sugarController,
-                    decoration: InputDecoration(
-                        hintText: 'Sugar Amount',
-                        icon: Icon(Icons.coffee_maker)),
-                      validator: (value){
-                         return value!.isNotEmpty ? null :"*Required";
-                      },
-                  ),
-                  TextFormField(
-                    controller:_coffeeController,
-                    decoration: InputDecoration(
-                        hintText: 'Coffee Amount',
-                        icon: Icon(Icons.coffee_maker)),
-                      validator: (value){
-                         return value!.isNotEmpty ? null :"*Required";
-                      },
-                  ),
-                ],
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  controller: _titleController,
+                  decoration: InputDecoration(
+                      hintText: 'Title',
+                      icon: Icon(Icons.coffee_maker)),
+                    validator: (value){
+                      return value!.isNotEmpty ? null :"*Required";
+                    },
+                ),
+                TextFormField(
+                  controller:_sugarController,
+                  decoration: InputDecoration(
+                      hintText: 'Sugar Amount',
+                      icon: Icon(Icons.coffee_maker)),
+                    validator: (value){
+                       return value!.isNotEmpty ? null :"*Required";
+                    },
+                ),
+                TextFormField(
+                  controller:_coffeeController,
+                  decoration: InputDecoration(
+                      hintText: 'Coffee Amount',
+                      icon: Icon(Icons.coffee_maker)),
+                    validator: (value){
+                       return value!.isNotEmpty ? null :"*Required";
+                    },
+                ),
+              ],
             ),
           ),
           actions: [
-             FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-             onPressed:(){
+             ElevatedButton(onPressed:(){
                if(formKey.currentState!.validate()){Navigator.of(context).pop();}
                
-             },
-             child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),
+             },style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+               child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),)
           ],
         );
         },

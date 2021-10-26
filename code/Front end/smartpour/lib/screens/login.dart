@@ -3,18 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:smartpour/screens/devicepage.dart';
 import 'package:smartpour/screens/signup.dart';
-
-
-import '../constant.dart';
-
+// ignore: use_key_in_widget_constructors
 class LoginPage extends StatefulWidget {
   @override
   _LoginViewState createState() => _LoginViewState();
 }
  class  _LoginViewState extends State<LoginPage>{
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   
   
    @override
@@ -45,10 +42,12 @@ class LoginPage extends StatefulWidget {
         ),
       ),
       validator:(value){
-        if(value!.isEmpty||!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
-            return "Enter correct email";
+        if(value!.isEmpty){
+            return "Email can't be empty";
         }else{
-            return null;
+          if(!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)){
+            return "Enter correct email";
+        }
         }
       }
     );
@@ -79,7 +78,7 @@ class LoginPage extends StatefulWidget {
           ),
           validator: (value){
             if(value!.isEmpty){
-              return "Enter the password";
+              return "Password can't be empty";
             }else{
               return null;
             }
@@ -122,7 +121,7 @@ class LoginPage extends StatefulWidget {
           key: _formKey,
           child:Stack(
             children:[ 
-              Container(
+              SizedBox(
                   height: size.height,
                   width: size.height,
                   child: Image.asset("images/bg_log_sign.jpeg", fit: BoxFit.cover),
@@ -152,13 +151,11 @@ class LoginPage extends StatefulWidget {
                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [fields],
                 ),) ,
                 SizedBox(height: 30,),
-                Positioned(bottom: 30,
-                child: SizedBox(height: 60,width: 300,child: FlatButton(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),color: primaryColor,
-                onPressed: (){ if(_formKey.currentState!.validate()){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));
-                }},
-                child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:Colors.white),),),),
-                ),
+                SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () { if(_formKey.currentState!.validate()){
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));}},
+                        style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+                        child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
+                
                 SizedBox(height: 30,),
                 InkWell(
                 onTap: (){

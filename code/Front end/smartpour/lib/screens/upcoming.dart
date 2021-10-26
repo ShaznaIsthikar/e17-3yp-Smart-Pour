@@ -1,8 +1,9 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 
-import '../constant.dart';
 import 'optionspage.dart';
- // ignore: prefer_const_constructors
+
+// ignore: use_key_in_widget_constructors
 class UpcomingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class UpcomingPage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/upcoming_bg.jpeg", fit: BoxFit.cover),
@@ -42,32 +43,28 @@ class UpcomingPage extends StatelessWidget {
             ),
           ),
           
-          
           Positioned(
-            bottom: 20,
+            bottom: 30,
             child: SizedBox(
               height: 60,
               width: 300,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: primaryColor,
-                onPressed: () => Navigator.push(
+              child: ElevatedButton(onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (_) => OptionsPage(),
                   ),
                 ),
-                child: Text(
-                  "Okay",
+               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),
+               ),primary: Color(0xffB98C53)),
+               child: Text(
+                  "Done",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
-                ),
-              ),
+                ),),
             ),
           ),
         ],

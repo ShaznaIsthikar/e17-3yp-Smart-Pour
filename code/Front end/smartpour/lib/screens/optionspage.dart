@@ -1,12 +1,13 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:smartpour/screens/schedule.dart';
 
 import '../constant.dart';
 import 'Favourites.dart';
-import 'homepage.dart';
 import 'ingredients.dart';
 import 'upcoming.dart';
- // ignore: prefer_const_constructors
+ 
+// ignore: use_key_in_widget_constructors
 class  OptionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class  OptionsPage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/bg_log_sign.jpeg", fit: BoxFit.cover),
@@ -37,6 +38,7 @@ class  OptionsPage extends StatelessWidget {
           Positioned(
             top: 80,
             child: Column(
+              // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Text(
                   "Life begins after Coffee!!",
