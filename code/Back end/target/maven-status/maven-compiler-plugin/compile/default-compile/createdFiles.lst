@@ -1,0 +1,4 @@
+com\smartPourdatabase\SmartPourDatabaseApplication.class
+com\smartPourdatabase\UserRepository.class
+com\smartPourdatabase\User.class
+com\smartPourdatabase\UserController.class
