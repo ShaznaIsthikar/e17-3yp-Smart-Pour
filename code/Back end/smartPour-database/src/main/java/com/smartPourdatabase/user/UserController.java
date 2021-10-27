@@ -1,4 +1,4 @@
-package com.smartPourdatabase;
+package com.smartPourdatabase.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 	
 	@PostMapping ("/signup")
 	public User Signup(@RequestBody User user) {
-		return userRepository.save(user);
+		return userService.addUser(user);
 	}
 	
 	@PostMapping ("/login")
 	public User Login (@RequestBody User user) {
-		User oldUser=userRepository.findByEmailAndPassword(user.email, user.password);
-		return oldUser;
+		return userService.isOlduser(user);
+		
 	}
 	
 }
