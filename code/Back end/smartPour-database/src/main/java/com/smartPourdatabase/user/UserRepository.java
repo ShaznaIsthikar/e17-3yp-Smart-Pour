@@ -1,4 +1,4 @@
-package com.smartPourdatabase;
+ package com.smartPourdatabase.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

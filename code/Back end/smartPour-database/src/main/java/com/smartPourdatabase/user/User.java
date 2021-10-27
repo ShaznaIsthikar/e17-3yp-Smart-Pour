@@ -1,5 +1,4 @@
-package com.smartPourdatabase;
-
+package com.smartPourdatabase.user;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,7 +14,8 @@ public class User {
 	Integer user_id;
 	
 	String password;
-	String email;
+	String email; 
+	
 	public User() {
 		
 	}
