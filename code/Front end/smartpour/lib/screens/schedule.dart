@@ -1,6 +1,7 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:smartpour/screens/optionspage.dart';
-import '../constant.dart';
+// ignore: use_key_in_widget_constructors
 class Schedule extends StatelessWidget {
 
   @override
@@ -10,7 +11,7 @@ class Schedule extends StatelessWidget {
       body: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/bg_option.jpeg", fit: BoxFit.cover),
@@ -48,26 +49,24 @@ class Schedule extends StatelessWidget {
             child: Column(
               children: [
               SizedBox(height: 400,),
-              FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: primaryColor,
-                onPressed: () => Navigator.push(
+              ElevatedButton(onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (_) => OptionsPage(),
                   ),
                 ),
-                child: Text(
+               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),
+               ),primary: Color(0xffB98C53)),
+               child: Text(
                   "Confirm",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color:Colors.white
+                    color: Colors.white,
                   ),
-                ),
-              ),],
+                ),),
+              ],
             ),) 
         ],
       ),

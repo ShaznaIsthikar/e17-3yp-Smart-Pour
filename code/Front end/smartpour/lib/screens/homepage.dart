@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smartpour/constant.dart';
 import 'package:smartpour/screens/signup.dart';
-import '../constant.dart';
 import 'login.dart';
 // ignore_for_file: prefer_const_constructors
+// ignore: use_key_in_widget_constructors
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -54,31 +55,15 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          
           Positioned(
             bottom: 125,
             child: SizedBox(
               height: 60,
               width: 300,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: primaryColor,
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => SignupPage(),
-                  ),
-                ),
-                child: Text(
-                  "SIGN UP",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => SignupPage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+               child: Text("SIGN UP",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),
             ),
           ),
           Positioned(
@@ -86,28 +71,25 @@ class HomePage extends StatelessWidget {
             child: SizedBox(
               height: 60,
               width: 300,
-              child: FlatButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                color: Colors.white,
-                onPressed: () => Navigator.push(
+              child: ElevatedButton(onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (_) => LoginPage(),
                   ),
                 ),
-                child: Text(
+               style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),
+               ),primary: Colors.white,),
+               child: Text(
                   "LOG IN",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color:primaryColor
                   ),
-                ),
-              ),
+                ),),
             ),
-          )
+          ),
         ],
       ),
     );

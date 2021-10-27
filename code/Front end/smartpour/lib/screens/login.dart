@@ -5,10 +5,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:smartpour/screens/devicepage.dart';
 import 'package:smartpour/screens/signup.dart';
+// ignore: use_key_in_widget_constructors
 import 'package:smartpour/screens/user.dart';
 import 'package:http/http.dart' as http;
 
-import '../constant.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -69,7 +69,7 @@ class _LoginViewState extends State<LoginPage> {
             return null;
           }
         });
-
+    
     final passwordField = Column(
       children: <Widget>[
         TextFormField(
@@ -98,10 +98,10 @@ class _LoginViewState extends State<LoginPage> {
               color: Colors.white,
             ),
           ),
-          validator: (value) {
-            if (value!.isEmpty) {
-              return "Enter the password";
-            } else {
+          validator: (value){
+            if(value!.isEmpty){
+              return "Password can't be empty";
+            }else{
               return null;
             }
           },
@@ -142,7 +142,7 @@ class _LoginViewState extends State<LoginPage> {
       key: _formKey,
       child: Stack(
         children: [
-          Container(
+          SizedBox(
             height: size.height,
             width: size.height,
             child: Image.asset("images/bg_log_sign.jpeg", fit: BoxFit.cover),
@@ -164,78 +164,20 @@ class _LoginViewState extends State<LoginPage> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(top: 80),
-                  child: Text(
-                    "LOG IN",
-                    style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(top: 0),
-                  child: Image.asset(
-                    "images/logo_t.png",
-                    width: size.width * 0.6,
-                  ),
-                ),
-                SizedBox(
-                  height: 7,
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: 20, right: 20),
-                  height: 280,
-                  padding: EdgeInsets.only(left: 10, right: 10),
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Colors.white.withOpacity(0.5),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [fields],
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Positioned(
-                  bottom: 30,
-                  child: SizedBox(
-                    height: 60,
-                    width: 300,
-                    child: FlatButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      color: primaryColor,
-                      onPressed: () {
-                        save();
-                        // if (_formKey.currentState!.validate()) {
-                        //   Navigator.push(
-                        //       context,
-                        //       MaterialPageRoute(
-                        //           builder: (context) => DevicePage()));
-                        // }
-                      },
-                      child: Text(
-                        "LOG IN",
-                        style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
+                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:80),child: Text("LOG IN",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
+                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:0),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
+                SizedBox(height: 7,),
+                Container(margin:EdgeInsets.only(left: 20,right: 20),height: 280,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.5),),
+                child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [fields],
+                ),) ,
+                SizedBox(height: 30,),
+                SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () { if(_formKey.currentState!.validate()){
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));}},
+                        style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+                        child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
+                
+                SizedBox(height: 30,),
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
