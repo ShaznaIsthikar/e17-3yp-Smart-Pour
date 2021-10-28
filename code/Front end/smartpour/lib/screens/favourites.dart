@@ -6,13 +6,14 @@ import 'optionspage.dart';
 
 class CardItem {
   final String title;
-  // ignore: non_constant_identifier_names
-  final String Name;
+  final String Sugar;
+  final String Coffee;
 
   const CardItem({
     required this.title,
-    // ignore: non_constant_identifier_names
-    required this.Name,
+    required this.Sugar,
+    required this.Coffee,
+
 
   });
 }
@@ -27,17 +28,19 @@ class Favorites extends StatefulWidget {
     List<CardItem> items =[
       CardItem(
         title: "Morning Coffee",
-        Name : "Mishel",
+        Sugar : "2",
+        Coffee: "1",
 
       ),
       CardItem(
         title: "Evening Coffee",
-        Name : "Mishel",
-
+        Sugar : "3",
+        Coffee: "2",
       ),
       CardItem(
-        title: "Regular Coffee",
-        Name : "Mishel",
+        title: "Default",
+        Sugar : "1",
+        Coffee: "1",
 
       ),
     ];
@@ -100,12 +103,12 @@ class Favorites extends StatefulWidget {
             Positioned(bottom: 110,child: SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () => _addRecipe(context),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53),),
                child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
-                   Text("Add a new device",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
+                   Text("Add a new Recipe",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
                   ),
             Positioned(bottom: 30,child: SizedBox(height: 60,width: 300,
               child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
-               child: Text("Okay",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),),
+               child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),),
         ],
       ),
     );
@@ -120,8 +123,37 @@ class Favorites extends StatefulWidget {
     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.4),),
     child: Column(children: [
       Image.asset("images/Recipe.jpeg",height: 160,width: 250,fit: BoxFit.cover,),
-      Text(item.title,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black,),),
-      Text(item.Name),
+      SizedBox(height: 10,),
+      Text(item.title,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: Colors.white,),),
+      SizedBox(height: 15,), 
+      Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+
+        children: [
+          SizedBox(width: 50,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text("Sugar",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.black,),),
+              SizedBox(height: 15,),
+              Text("Coffee",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.black,),),
+            ],
+          ),
+          SizedBox(width: 70,),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+    crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              
+              Text(item.Sugar,style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.black,),),
+              SizedBox(height: 15,),
+              Text(item.Coffee,style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.black,),),
+            ],
+          ),
+        ],
+      ),
     ],),
   );
 

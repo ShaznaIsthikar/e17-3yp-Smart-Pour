@@ -18,7 +18,8 @@ class LoginPage extends StatefulWidget {
 class _LoginViewState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   User user = User("", "");
-  String url = "http://localhost:8080/login";
+  //String url = "http://localhost:8080/login";
+  String url="";
 
   Future save() async {
     var res = await http.post(url,

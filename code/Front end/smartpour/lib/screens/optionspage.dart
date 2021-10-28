@@ -4,6 +4,7 @@ import 'package:smartpour/screens/schedule.dart';
 
 import '../constant.dart';
 import 'Favourites.dart';
+import 'homepage.dart';
 import 'ingredients.dart';
 import 'upcoming.dart';
  
@@ -114,7 +115,13 @@ class  OptionsPage extends StatelessWidget {
             ],
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 20,crossAxisSpacing: 20),
           ),),
-
+          Positioned(
+            bottom: 30 ,
+            //left: 0,
+            child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => HomePage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
+               child: Text("Log Out",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),)
+          ),
         ],
       ),
     );
