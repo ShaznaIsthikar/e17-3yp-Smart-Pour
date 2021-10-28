@@ -103,7 +103,7 @@ class Favorites extends StatefulWidget {
             Positioned(bottom: 110,child: SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () => _addRecipe(context),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53),),
                child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
-                   Text("Add a new device",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
+                   Text("Add a new Recipe",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),] ),),),
                   ),
             Positioned(bottom: 30,child: SizedBox(height: 60,width: 300,
               child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
