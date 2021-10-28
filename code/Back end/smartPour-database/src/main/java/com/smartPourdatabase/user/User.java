@@ -1,7 +1,11 @@
 package com.smartPourdatabase.user;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.Data;
 
@@ -16,6 +20,18 @@ public class User {
 	String password;
 	String email; 
 	
+//	@ManyToMany(mappedBy = "signedupusers")
+//	
+//	private Set<User> devices  = new HashSet<>();
+	
+//	public Set<User> getSignedupuser() {
+//		return devices;
+//	}
+//
+//	public void setSignedupuser(Set<User> signedupuser) {
+//		this.devices = signedupuser;
+//	}
+
 	public User() {
 		
 	}
