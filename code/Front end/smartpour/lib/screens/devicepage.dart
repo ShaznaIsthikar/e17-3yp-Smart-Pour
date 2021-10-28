@@ -35,19 +35,50 @@ class  DevicePage extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
+
             child: Column(
              children:[
-               SizedBox(height: 40,),
+               //SizedBox(height: 40,),
                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:10),child: Text("Devices",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
                SizedBox(height: 20,),
-               Container(margin:EdgeInsets.only(left: 20,right: 20),height: 500,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
+               Container(margin:EdgeInsets.only(left: 20,right: 20),height: 120,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white.withOpacity(0.5),),
-               child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
-                 
-                 
+               child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [ Row(
+                 children: [
+                   Container(
+                                height: 80,width: 80,margin: EdgeInsets.all(5),decoration: BoxDecoration(color: Colors.white60,borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(image: AssetImage("images/device.jpeg"),fit: BoxFit.fitWidth,),),),
+
+                   SizedBox(width: 5,),
+                   Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+                     children: const [Text("Name",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
+                     SizedBox(height: 10,),
+                     Text("Mac Address",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
+                     SizedBox(height: 10,),
+                     Text("Status",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),],
+                   ),
+                   Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [Text(": Office",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
+                     SizedBox(height: 10,),
+                     Text(": 30:AE:A4:07:0D:64",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
+                     SizedBox(height: 10,),
+                     Row(
+                       children: [
+                         Text(": Online",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
+                         SizedBox(width: 5,),
+                         Icon(Icons.circle_rounded,color: Colors.lightGreenAccent[400],size: 20,)
+                       ],
+                     )],
+                   )
+                 ],
+               )
                ],
                ),) ,
-               SizedBox(height: 20,),
+               SizedBox(height: 350,),
                SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () => _addDevice(context),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53),),
                child: Row(mainAxisAlignment: MainAxisAlignment.center,children:[IconButton(onPressed: () {},icon: Icon(Icons.add_outlined,color: Colors.white,size: 30.0,),),
@@ -56,7 +87,7 @@ class  DevicePage extends StatelessWidget {
                SizedBox(height: 20,),
                SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () => Navigator.push(context,MaterialPageRoute(builder: (_) => OptionsPage(),),),style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
-               child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
+               child: Text("Next",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
                ],),
           ),
         ],
