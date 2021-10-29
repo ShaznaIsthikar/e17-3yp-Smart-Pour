@@ -107,6 +107,7 @@ class  DevicePage extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 TextFormField(
+                  key: Key("Device Name"),
                   controller: _devicenameController,
                   decoration: InputDecoration(
                       hintText: 'Enter the Device Name',
@@ -116,6 +117,7 @@ class  DevicePage extends StatelessWidget {
                     },
                 ),
                 TextFormField(
+                  key: Key("Mac"),
                   controller:_macController,
                   decoration: InputDecoration(
                       hintText: 'Enter the MAC',
@@ -131,7 +133,8 @@ class  DevicePage extends StatelessWidget {
             ElevatedButton(onPressed:(){
                if(_formKey.currentState!.validate()){Navigator.of(context).pop();}
                
-             },style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
+             },key: Key("adddevice"),
+             style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
                child: Text("Done",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),)
           ],
