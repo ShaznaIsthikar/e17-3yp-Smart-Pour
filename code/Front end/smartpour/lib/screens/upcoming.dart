@@ -70,6 +70,10 @@ class UpcomingPage extends StatelessWidget {
                      Text(": 8:00 PM",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.black,),),
                      
                      ],
+                   ),
+                   SizedBox(width: 7,),
+                   Container(
+                      child:Icon(Icons.cancel,size: 30,color: Colors.black,),
                    )
                  ],
                )
