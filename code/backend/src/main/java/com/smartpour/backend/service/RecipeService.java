@@ -25,4 +25,19 @@ public class RecipeService {
     public Recipe findUserByRecipeName (String recipe){
         return recipeRepository.findByRecipeName(recipe);
     }
+
+    public String addrecipe(Recipe recipe) {
+        try {
+            if (!recipeRepository.existsByrecipeName(recipe.getRecipeName())) {
+                recipeRepository.save(recipe);
+                return "Recipe added successfully";
+            }else {
+                return "This recipe already exists";
+            }
+        }catch (Exception e) {
+            throw e;
+        }
+    }
+
+
 }

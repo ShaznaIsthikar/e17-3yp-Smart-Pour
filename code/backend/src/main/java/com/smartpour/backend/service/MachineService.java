@@ -16,8 +16,17 @@ public class MachineService {
     @Autowired
     private MachineRepository machineRepository;
 
-    public void savemachine(Machine machine){
-        machineRepository.save(machine);
+    public String addmachine(Machine machine){
+        try {
+            if (!machineRepository.existsByMacaddress(machine.getMacaddress())) {
+                machineRepository.save(machine);
+                return "Machine added successfully";
+            }else {
+                return "This machine already exists";
+            }
+        }catch (Exception e) {
+            throw e;
+        }
     }
     public List<Machine> listAllmachine() {
         return machineRepository.findAll();

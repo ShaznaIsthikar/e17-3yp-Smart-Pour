@@ -15,14 +15,24 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void saveuser(User user){
-        userRepository.save(user);
-    }
     public List<User>listAllusers() {
         return userRepository.findAll();
     }
     public User findUserByUsername (String username){
         return userRepository.findByUsername(username);
+    }
+
+    public String adduser(User user) {
+        try {
+            if (!userRepository.existsByUsername(user.getUsername())) {
+                userRepository.save(user);
+                return "User added successfully";
+            }else {
+                return "This user already exists";
+            }
+        }catch (Exception e) {
+            throw e;
+        }
     }
 
 

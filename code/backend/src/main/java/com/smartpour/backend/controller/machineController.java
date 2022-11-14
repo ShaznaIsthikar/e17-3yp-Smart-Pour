@@ -22,13 +22,9 @@ public class machineController {
     @Autowired
     MachineRepository machineRepository;
 
-    @PostMapping(value = "/savemachine")
-    public Machine add(@RequestBody Machine machine) {
-        //User existUser = machineService.findMachineByname(machine.getUsername());
-        //if (existUser != null) { System.out.println("You have already signed up"); }
-        //throw new ErrorCode(HttpStatus.BAD_REQUEST.toString(), "You have already signed up",HttpStatus.BAD_REQUEST);
-        machineService.savemachine(machine);
-        return (machine);
+    @PostMapping(value = "/addmachine")
+    public String add(@RequestBody Machine machine) {
+        return machineService.addmachine(machine);
 
     }
     @GetMapping(value ="/getAllmachines")

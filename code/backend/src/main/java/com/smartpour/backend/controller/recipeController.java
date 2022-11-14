@@ -21,15 +21,11 @@ public class recipeController {
     @Autowired
     RecipeRepository recipeRepository;
 
-    @PostMapping(value = "/saverecipe")
-    public Recipe add(@RequestBody Recipe recipe) {
-        //User existUser = userService.findUserByUsername(user.getUsername());
-        //if (existUser != null) { System.out.println("You have already signed up"); }
-        //throw new ErrorCode(HttpStatus.BAD_REQUEST.toString(), "You have already signed up",HttpStatus.BAD_REQUEST);
-        recipeService.saveRecipe(recipe);
-        return (recipe);
-
+    @PostMapping(value = "/addrecipe")
+    public String add(@RequestBody Recipe recipe) {
+        return recipeService.addrecipe(recipe);
     }
+
     @GetMapping(value ="/getAllrecipe")
     public List<Recipe> getallrecipe(){
         return recipeService.listAllrecipe();
