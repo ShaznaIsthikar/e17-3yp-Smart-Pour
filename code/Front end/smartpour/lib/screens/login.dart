@@ -7,7 +7,9 @@ import 'package:smartpour/screens/devicepage.dart';
 import 'package:smartpour/screens/signup.dart';
 // ignore: use_key_in_widget_constructors
 import 'package:smartpour/screens/user.dart';
-import 'package:http/http.dart' as http;
+//import 'package:http/http.dart' as http;
+
+import '../utilities/form_validators.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -21,12 +23,12 @@ class _LoginViewState extends State<LoginPage> {
   //String url = "http://localhost:8080/login";
   String url="";
 
-  Future save() async {
-    var res = await http.post(url,
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({'email': user.email, 'password': user.password}));
-    print(res.body);
-  }
+  //Future save() async {
+  //  var res = await http.post(url,
+  //      headers: {'Content-Type': 'application/json'},
+  //      body: json.encode({'email': user.email, 'password': user.password}));
+  //  print(res.body);
+  //}
   // TextEditingController _emailController =
   // //     TextEditingController(text: user.email);
   // TextEditingController _passwordController = TextEditingController();
@@ -37,6 +39,7 @@ class _LoginViewState extends State<LoginPage> {
 
     final emailField = TextFormField(
         //enabled: isSummtting,
+        key: Key("Addloginemail"),
         controller: TextEditingController(text: user.email),
         onChanged: (val) {
           user.email = val;
@@ -62,18 +65,20 @@ class _LoginViewState extends State<LoginPage> {
             color: Colors.white,
           ),
         ),
-        validator: (value) {
-          if (value!.isEmpty ||
-              !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
-            return "Enter correct email";
-          } else {
-            return null;
-          }
+        validator:(value) {
+          if(value!.isEmpty){
+              return "Email can't be empty";
+            }
+          //if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
+          ///  return "Enter correct email";
+          //}
+          
         });
     
     final passwordField = Column(
       children: <Widget>[
         TextFormField(
+          key: Key("Addloginpassword"),
           obscureText: true,
           controller: TextEditingController(text: user.password),
           onChanged: (val) {
@@ -99,7 +104,7 @@ class _LoginViewState extends State<LoginPage> {
               color: Colors.white,
             ),
           ),
-          validator: (value){
+          validator:  (value){
             if(value!.isEmpty){
               return "Password can't be empty";
             }else{
@@ -174,7 +179,7 @@ class _LoginViewState extends State<LoginPage> {
                 ),) ,
                 SizedBox(height: 30,),
                 SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () { if(_formKey.currentState!.validate()){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));}},
+                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));}},key: Key("login"),
                         style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
                         child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
                 
