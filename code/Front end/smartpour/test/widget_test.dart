@@ -1,7 +1,7 @@
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smartpour/screens/devicepage.dart';
 import 'package:smartpour/screens/login.dart';
 import 'package:smartpour/screens/signup.dart';
 
