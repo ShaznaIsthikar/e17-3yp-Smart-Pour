@@ -18,22 +18,14 @@ public class userController {
     @Autowired
     UserRepository userRepository;
 
-    @PostMapping(value = "/saveuser")
-    public User add(@RequestBody User user) {
-        User existUser = userService.findUserByUsername(user.getUsername());
-        if (existUser != null) {
-            System.out.println("You have already signed up");
-        }
-            //throw new ErrorCode(HttpStatus.BAD_REQUEST.toString(), "You have already signed up",HttpStatus.BAD_REQUEST);
-        userService.saveuser(user);
-        return (user);
-
+    @PostMapping(value = "/adduser")
+    public String  add(@RequestBody User user) {
+        return userService.adduser(user);
     }
     @GetMapping(value ="/getAllusers")
     public List<User> getallusers(){
         return userService.listAllusers();
     }
-
 
 
 }

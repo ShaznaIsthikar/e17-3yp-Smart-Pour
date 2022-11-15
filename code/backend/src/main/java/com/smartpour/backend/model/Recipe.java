@@ -16,6 +16,6 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int recipeId;
     private String recipeName;
-    private String sugar;
-    private String coffee;
+    private int sugar;
+    private int coffee;
 }
