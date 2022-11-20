@@ -7,10 +7,8 @@ import 'package:smartpour/screens/devicepage.dart';
 import 'package:smartpour/screens/signup.dart';
 // ignore: use_key_in_widget_constructors
 import 'package:smartpour/screens/user.dart';
-//import 'package:http/http.dart' as http;
-
+import 'package:http/http.dart' as http;
 import '../utilities/form_validators.dart';
-
 
 class LoginPage extends StatefulWidget {
   @override
@@ -19,31 +17,17 @@ class LoginPage extends StatefulWidget {
 
 class _LoginViewState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
-  User user = User("", "");
-  //String url = "http://localhost:8080/login";
-  String url="";
-
-  //Future save() async {
-  //  var res = await http.post(url,
-  //      headers: {'Content-Type': 'application/json'},
-  //      body: json.encode({'email': user.email, 'password': user.password}));
-  //  print(res.body);
-  //}
-  // TextEditingController _emailController =
-  // //     TextEditingController(text: user.email);
-  // TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
 
     final emailField = TextFormField(
-        //enabled: isSummtting,
-        key: Key("Addloginemail"),
-        controller: TextEditingController(text: user.email),
-        onChanged: (val) {
-          user.email = val;
-        },
+        key: Key("Add Name"),
+        controller: _emailController,
         keyboardType: TextInputType.emailAddress,
         style: TextStyle(
           color: Colors.white,
@@ -65,70 +49,40 @@ class _LoginViewState extends State<LoginPage> {
             color: Colors.white,
           ),
         ),
-        validator:(value) {
-          if(value!.isEmpty){
-              return "Email can't be empty";
-            }
-          //if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value)) {
-          ///  return "Enter correct email";
-          //}
-          
-        });
-    
+        validator: emailValidator);
+
     final passwordField = Column(
       children: <Widget>[
         TextFormField(
-          key: Key("Addloginpassword"),
-          obscureText: true,
-          controller: TextEditingController(text: user.password),
-          onChanged: (val) {
-            user.password = val;
-          },
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-          cursorColor: Colors.white,
-          decoration: InputDecoration(
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
+            key: Key("Addpassword"),
+            obscureText: true,
+            controller: _passwordController,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+            cursorColor: Colors.white,
+            decoration: InputDecoration(
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(
+                  color: Colors.white,
+                ),
+              ),
+              hintText: "password",
+              labelText: "Password",
+              labelStyle: TextStyle(
+                color: Colors.white,
+              ),
+              hintStyle: TextStyle(
                 color: Colors.white,
               ),
             ),
-            hintText: "password",
-            labelText: "Password",
-            labelStyle: TextStyle(
-              color: Colors.white,
-            ),
-            hintStyle: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          validator:  (value){
-            if(value!.isEmpty){
-              return "Password can't be empty";
-            }else{
-              return null;
-            }
-          },
-        ),
+            validator: passwordValidator),
         Padding(
           padding: EdgeInsets.all(2.0),
         ),
         SizedBox(
           height: 20,
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            MaterialButton(
-                child: Text("Forgot Password",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.black)),
-                onPressed: () {
-                  //popups
-                }),
-          ],
         ),
       ],
     );
@@ -170,20 +124,118 @@ class _LoginViewState extends State<LoginPage> {
           SingleChildScrollView(
             child: Column(
               children: [
-                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:80),child: Text("LOG IN",style: TextStyle(fontSize:50,fontWeight: FontWeight.bold,color: Colors.white,),),), 
-                Container(alignment: Alignment.center,padding: EdgeInsets.only(top:0),child: Image.asset("images/logo_t.png",width: size.width * 0.6,),),
-                SizedBox(height: 7,),
-                Container(margin:EdgeInsets.only(left: 20,right: 20),height: 280,padding: EdgeInsets.only(left:10,right: 10),width: double.infinity,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(30),color: Colors.white.withOpacity(0.5),),
-                child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [fields],
-                ),) ,
-                SizedBox(height: 30,),
-                SizedBox(height: 60,width: 300,child: ElevatedButton(onPressed: () { if(_formKey.currentState!.validate()){
-                  Navigator.push(context,MaterialPageRoute(builder:(context)=>DevicePage() ));}},key: Key("login"),
-                        style: ElevatedButton.styleFrom(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0),),primary: Color(0xffB98C53)),
-                        child: Text("LOG IN",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),),),),
-                
-                SizedBox(height: 30,),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 80),
+                  child: Text(
+                    "LOG IN",
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.center,
+                  padding: EdgeInsets.only(top: 0),
+                  child: Image.asset(
+                    "images/logo_t.png",
+                    width: size.width * 0.6,
+                  ),
+                ),
+                SizedBox(
+                  height: 7,
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 20, right: 20),
+                  height: 280,
+                  padding: EdgeInsets.only(left: 10, right: 10),
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white.withOpacity(0.5),
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [fields],
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                SizedBox(
+                  height: 60,
+                  width: 300,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+
+                      final response = await http.post(
+                        Uri.parse(
+                            'http://10.0.2.2:8080/smartpour/user/login'),
+                            headers: {'Content-Type': 'application/json'},
+                            body: jsonEncode(<String, String>{
+                            "useremail": _emailController.text,
+                            "password": _passwordController.text,
+                        }),
+                      );
+
+                      User user = User(_emailController.text, _passwordController.text);
+                      var res=jsonDecode(response.body) ;
+                      if (res["success"]==true){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DevicePage()));
+                        print(res["id"]);
+
+
+                      }else{
+                        showDialog(
+                            context: context,
+                            builder: (ctx) => AlertDialog(
+                              title: const Text("Alerts!"),
+                              content: const Text("User doesn't exist"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(ctx).pop();
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.all(14),
+                                    child: const Text("okay"),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+
+                      }
+                      //print(res["success"]);
+
+                      
+                    }
+                    },
+                    key: Key("login"),
+                    style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        primary: Color(0xffB98C53)),
+                    child: Text(
+                      "LOG IN",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
                 InkWell(
                   onTap: () {
                     Navigator.push(context,
